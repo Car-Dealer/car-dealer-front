@@ -1,0 +1,83 @@
+@import '../../assets/style/variables.scss';
+
+.navbar{
+    display: flex;
+    background: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    &__brand{
+        h1{
+            font-size: 20px;
+        }
+    }
+    &__menu{
+        display: flex;
+        align-items: center;
+        align-content: center;
+        &-nav{
+            display: flex;
+            margin-right: 120px;
+            a{
+                color: black;
+            }
+            li{
+                margin-left: 46px;
+                font-size: 16px;
+                font-weight: 300;
+                text-transform: uppercase;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 80%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    bottom: 0;
+                    left: 10%;
+                    background-color: $color_alpha;
+                    transform-origin: bottom right;
+                    transition: transform 0.25s ease-out;
+                }
+                &:hover::after{
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+            }
+        }
+        &-button{
+            &:hover{
+                // cursor: pointer;
+                // background: $color_alpha;
+                align-items: center;
+            }
+            .btn{
+                border: 2px solid $color_alpha;
+                border-radius: 5px;
+                background:white;
+                color: $color_alpha;
+                font-size: 14px;
+                padding: 13px 9px;
+                font-weight:100;
+                &:hover{
+                    color: white;
+                    cursor: pointer;
+                    background: $color_alpha;
+                    transition: 0.4s all ease ;
+                }
+            }
+            .icon{
+                font-size: 15px;
+                margin-right: 5px;
+                &:hover{
+                    color: white;
+                }
+                
+            }
+        }
+    }
+}
+
+li{
+    text-decoration: none;
+}

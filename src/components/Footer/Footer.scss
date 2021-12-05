@@ -1,0 +1,39 @@
+footer{
+    background: white;
+    height: 10%;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    font-size: 10px;
+    font-weight: 200;
+    &__brand{
+        margin: 10px 0;
+    }
+    &__buttons{
+        display: flex;
+        li{
+            margin: 0 30px;
+        }
+
+    }
+    &__contact{
+
+    }
+    &__social{
+        &-logo{
+           margin: 0 10px; 
+        }
+        
+    }
+}
+.divider{
+    display: block;
+    width: 1px;
+    background: rgb(128, 128, 128, 0.25);
+    height: 30px;
+}
