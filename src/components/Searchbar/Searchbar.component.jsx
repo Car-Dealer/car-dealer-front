@@ -1,18 +1,43 @@
-import React from 'react'
-import "./Searchbar.scss"
-import { carMake } from '../../assets/constants'
+// import React from 'react'
+// import "./Searchbar.scss"
+// import { carMake, Carss, cities } from '../../assets/constants'
 
-const Searchbar = () => {
-    return (
-        <div className="container">
-            <div className="searchbar">
-                <input type="text" list="carMake" className="searchbar__make" />
-                <datalist id="carMake">
-                    {carMake.map((car, i)=>(<option value={car} index={i}></option>))}
-                </datalist>
-            </div>
-        </div>
-    )
-}
+// function arrayMaker(x=1900,y=2022) {
+//     let arr=[];
+//     for (let i=y; i>x;i--){
+//         arr.push(i)
+//     }
+//     return arr
+// }
 
-export default Searchbar
+// const carrrrrr= {
+//     make: "",
+//     model: "",
+//     city: "",
+//     year:{
+//         from: "",
+//         to: ""
+//     },
+//     fuel: "",
+//     price:{
+//         from: "",
+//         to:""
+//     }}
+
+
+// const Searchbar = () => {
+//     return (
+//         <div className="white">
+//             <div className="container">
+//                 <div className="searchbar">
+//                     <select type="text" list="carMake" className="searchbar__make" >
+//                         {carMake.map((car, i)=>(<option value={car} index={i}></option>))}
+//                     </select>
+
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+
+// export default Searchbar

@@ -5,7 +5,7 @@ import { IoMdCash } from 'react-icons/io'
 
 const Product = ({car}) => {
     return (
-        <div className="product">
+        <a href={"/car/"+car.id} className="product" >
             <div className="product__postdate">
                 <p>{car.date}</p>
             </div>
@@ -13,7 +13,7 @@ const Product = ({car}) => {
                 <img src={car.img} alt="" />
             </div>
             <div className="product__firstline">
-                <h2>{car.car}</h2>
+                <h2>{car.make + " " + car.model}</h2>
                 <p>{car.year}</p>
             </div>
             <div className="product__secondline">
@@ -36,10 +36,10 @@ const Product = ({car}) => {
                 </div>
                 <div className="product__lastline-rate">
                     <h3>rate</h3>
-                    <p>{car.rate}</p>
+                    <p>{car.price_rate}</p>
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
 

@@ -2,6 +2,8 @@ import React from 'react'
 import Products from '../../components/Products/Products.component'
 import "./CarSearch.scss"
 import { carMake, Carss, cities } from '../../assets/constants'
+import Footer from '../../components/Footer/Footer.component';
+import axios from 'axios';
 
 function arrayMaker(x=1900,y=2022) {
     let arr=[];
@@ -10,6 +12,8 @@ function arrayMaker(x=1900,y=2022) {
     }
     return arr
 }
+
+axios.post("localhost")
 
 const carrrrrr= {
     make: "",
@@ -28,6 +32,7 @@ const carrrrrr= {
 
 
 const CarSearch = () => {
+    const [Result, setResult] = React.useState([])
     const [carMaker, setcarMake] = React.useState("")
     const [Models, setModels] = React.useState([])
     const [car, setcar] = React.useState(carrrrrr)
@@ -38,7 +43,19 @@ const CarSearch = () => {
     React.useEffect(() => {
         console.log(car)
     }, [carMaker, Models, car])
+
+    const search = async ()=>{
+        axios.post("http://localhost:3001/car", car)
+        .then(res=>{
+            console.log(res.data)
+            setResult(res.data)
+        })
+        .catch(e=>console.error(e))
+    }
+
+
     return (
+        <>
         <div className="container">
             <div className="search">
                 <div className="search__filter">
@@ -87,17 +104,19 @@ const CarSearch = () => {
                             <option value="" key="0">To</option>
                             {arrayMaker(car.price.from).map((e,i)=><option value={e} key={i}>{e}</option>)}
                         </select>
-                        
                     </div>
-                    <button className="search-button"> Search</button>
+                    <button className="search-button" onClick={search}> Search</button>
                     <p className="reset-button" onClick={e=> setcar(carrrrrr)}>reset</p>
                 </div>
                 <div className="search__content">
-                    <Products/>
+                    <Products list={Result}/>
                 </div>
                 
             </div>
+            
         </div>
+        <Footer/>
+        </>
     )
 }
 

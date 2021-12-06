@@ -1,13 +1,12 @@
 import React from 'react'
 import Product from './Product/Product.component'
-import { cars } from '../../assets/constants'
 import "./Products.scss"
 
-const Products = () => {
+const Products = ({list}) => {
     return (
         <div className="container">
             <div className="products">
-                {cars.map((car, i)=>(<Product key={i} car={car}/>))}
+                {list.map((car, i)=>(<Product key={i} car={car}/>))}
             </div>
         </div>
     )

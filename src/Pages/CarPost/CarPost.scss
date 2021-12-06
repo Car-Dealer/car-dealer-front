@@ -20,7 +20,23 @@
                 font-weight: 400;
             }
         }
+        &__wrap{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        &-rate{
+            border: 1px solid $color_alpha;
+            border-radius: 6px;
+            padding: 3px 20px;
+            text-align: center;
+            width: fit-content;
+            margin:0;
+            h2{
+                font-weight: 500;
+            }
+        }
         &-details{
+            width: fit-content;
             display: grid;
             grid-template-areas:"Product Desc";
             grid-template-columns: 120px;

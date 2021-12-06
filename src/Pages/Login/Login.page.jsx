@@ -1,11 +1,13 @@
 import React from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
+import Footer from '../../components/Footer/Footer.component'
 import "./Login.scss"
 
 const Login = () => {
     const [alert, setalert] = React.useState(false)
 
     return (
+        <>
         <div className="container">
             <div className="login">
                 <div className="login__signin">
@@ -36,8 +38,13 @@ const Login = () => {
                      />
                 </div>
                 <button onClick={setalert}>Sign in</button>
-            </div>            
+            </div>    
+                    
         </div>
+        <div style={{position:"absolute", bottom: "0", width:"100%"}}>
+        <Footer/> 
+        </div>
+        </>
     )
 }
 

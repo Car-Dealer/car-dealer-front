@@ -1,5 +1,4 @@
 import './App.scss';
-import Footer from './components/Footer/Footer.component';
 import Navbar from './components/Navbar/Navbar.component';
 import Home from './Pages/Home/Home.page';
 import {
@@ -26,12 +25,14 @@ function App() {
         <Route path="/signup" element={<Signup/>}/>
       </Routes>
       <Routes>
-        <Route exact path="/car" element={<CarPost/>}/>
+        <Route exact path="/car/:id" element={<CarPost/>}/>
       </Routes>
       <Routes>
-        <Route exact path="/car/all" element={<CarSearch/>}/>
+        <Route exact path="/car" element={<CarSearch/>}/>
       </Routes>
-      <Footer/>
+      {/* <Routes>
+        <Route exact  path="*" element={<NotFound/>}/>
+      </Routes> */}
     </Router>
   );
 }
