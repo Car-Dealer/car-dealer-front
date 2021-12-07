@@ -28,7 +28,7 @@ function App() {
         <Route exact path="/car/:id" element={<CarPost/>}/>
       </Routes>
       <Routes>
-        <Route exact path="/car" element={<CarSearch/>}/>
+        <Route exact path="/allcar" element={<CarSearch/>}/>
       </Routes>
       {/* <Routes>
         <Route exact  path="*" element={<NotFound/>}/>

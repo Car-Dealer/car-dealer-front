@@ -3,9 +3,9 @@ import "./CarPost.scss";
 import ImageGallery from "react-image-gallery";
 import Products from "../../components/Products/Products.component";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { cars } from "../../assets/constants";
 import { useParams } from "react-router";
 import Footer from "../../components/Footer/Footer.component";
+import axios from "axios";
 
 const images = [
   {
@@ -24,7 +24,20 @@ const images = [
 
 const CarPost = (params) => {
     const { id } = useParams()
-  const car = cars.find((car) => car.id ==id);
+  const [car, setcar] = React.useState({})
+  const [random, setrandom] = React.useState([])
+  React.useEffect(()=>{
+    axios.get(`http://localhost:3001/car/${id}`)
+    .then(res=>{
+        console.log(res.data)
+        setcar(res.data)
+    })
+    .catch(e=>console.error(e))
+    axios.get("http://localhost:3001/car/random")
+    .then(res=>setrandom(res.data))
+    .catch(e=>console.log(e))
+  },[id])
+
   return (
     <>
     <div className="container">
@@ -69,14 +82,14 @@ const CarPost = (params) => {
             </div>
             <div className="post__content-rate">
               <h2>rate</h2>
-              <p>{car.rate}</p>
+              <p>{car.price_rate}</p>
             </div>
           </div>
           <div className="post__content-description">
             <h3>Description:</h3>
             <span className="line"></span>
             <p>
-              {car.desc}
+              {car.description}
             </p>
           </div>
           <div className="post__content-pn">
@@ -91,7 +104,7 @@ const CarPost = (params) => {
       <span className="line"></span>
       <div className="post__similar">
         <h2 className="post__similar-deals">Similar Deals</h2>
-        <Products />
+        <Products list={random}/>
       </div>
       
     </div>

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import Footer from '../../components/Footer/Footer.component'
 import Hero from '../../components/Hero/Hero.component'
@@ -6,6 +7,12 @@ import Products from '../../components/Products/Products.component'
 import "./Home.scss"
 
 const Home = () => {
+    const [random, setrandom] = React.useState([])
+    React.useEffect(()=>{
+        axios.get("http://localhost:3001/car/random")
+    .then(res=>setrandom(res.data))
+    .catch(e=>console.log(e))
+    },[])
     return (
         <>
         {/* <Searchbar/> */}
@@ -16,7 +23,7 @@ const Home = () => {
                 <p>Check out these awesome deals</p>
             </div>
             <div className="hot-deals">
-                <Products/>
+                <Products list={random}/>
             </div>
             
         </div>

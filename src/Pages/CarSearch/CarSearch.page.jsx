@@ -44,6 +44,15 @@ const CarSearch = () => {
         console.log(car)
     }, [carMaker, Models, car])
 
+    React.useEffect(()=>{
+        axios.post("http://localhost:3001/car", car)
+        .then(res=>{
+            console.log(res.data)
+            setResult(res.data)
+        })
+        .catch(e=>console.error(e))
+    },[car])
+
     const search = async ()=>{
         axios.post("http://localhost:3001/car", car)
         .then(res=>{
